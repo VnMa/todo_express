@@ -31,6 +31,15 @@ const db = mongoose.connection;
 
 mongoose.connect(mongoDb, { useNewUrlParser: true });
 
+// Setup passport local mongoose
+const User = require("./models/user");
+const passport = require("passport");
+const passportLocal = require("passport-local");
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 //Bind connection to error event (to get notification of connection errors)
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
