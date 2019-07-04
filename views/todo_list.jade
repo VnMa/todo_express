@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1=title
+
+
+    if (todos != undefined && todos.length) == 0
+        p There is no todos.
+    else
+        for todo in todos
+            
+            .panel.panel-default(style='max-width: 800px')
+                .panel-heading #[em #{todo.title}] 
+                .panel-body #{todo.content}
+            br
+
+
+    a.btn.btn-primary(href='/todo/create') Create new todo
+

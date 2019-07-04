@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    h1 Create todo
+
+    form(method='post' action="", style="max-width: 300px;")
+        .form-group
+            label(for='title') Title
+            input#title.form-control(type='text', placeholder='Title' required='true' value='fake title')
+        .form-group
+            label(for='content') Content
+            textarea#content.form-control(type='text', placeholder='Content' value='blabla' rows='3') Acabarara
+        button.btn.btn-primary(type='submit') Submit
+
+    if errors != undefined
+        ul
+            for error in errors
+                li!= error.msg
