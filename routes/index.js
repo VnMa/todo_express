@@ -21,6 +21,7 @@ router.get("/signup", function(req, res, next) {
 router.get("/todo_list", todo_controller.todo_list);
 
 router.get("/todo/create", todo_controller.todo_form);
-router.post("/todo/create", urlencodedParser, todo_controller.todo_create);
+router.post("/todo/create", todo_controller.todo_create);
+router.post("/todo/show", todo_controller.todo_show);
 
 module.exports = router;

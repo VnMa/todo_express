@@ -64,4 +64,15 @@ exports.todo_create = [
   }
 ];
 
-exports.todo_show = function(req, res, next) {};
+exports.todo_show = [
+  // Validate fields
+  body("title", "todo title is required")
+    .isLength({ min: 1 })
+    .trim(),
+
+  function(req, res, next) {
+    const errors = validationResult(req);
+
+    res.json({ ...req.body, okay: "kakaka okala xxxx" });
+  }
+];

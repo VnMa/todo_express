@@ -12,4 +12,11 @@ router.post("/ping", function(req, res) {
   res.json({ ...req.body, success: "ok" });
 });
 
+router.post("/test_form", function(req, res) {
+    //   res.send("pong");
+    console.log("req.body: ", req.body);
+  
+    res.json({ ...req.body, success: "ok" });
+  });
+
 module.exports = router;
